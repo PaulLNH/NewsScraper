@@ -1,6 +1,24 @@
-{{#each articles}}
+<h1 class="text-center">New York Times Articles</h1>
+
+
+<div class="list-group">
+    {{#each articles}}
+    <a href="{{link}}" class="list-group-item list-group-item-action flex-column align-items-start {{#if @first}} active{{/if}}"
+        alt="{{title}}">
+        <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">{{title}}</h5>
+            <small>{{timestamp}}</small>
+        </div>
+        <p class="mb-1">{{body}}</p>
+        <small>By: {{author}}</small>
+    </a>
+    {{/each}}
+</div>
+
+
+{{!-- @index - for array indexing @key - for object indexing --}} {{!-- {{#each articles}}
 <h4>
     <a href="{{link}}" alt="{{title}}">{{title}}</a>
 </h4>
 <p>By: {{author}}</p>
-<hr> {{/each}}
+<hr> {{/each}} --}}
