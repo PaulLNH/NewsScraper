@@ -1,29 +1,15 @@
 {
-  "name": "newsscraper",
+  "name": "ben_and_jerry",
   "version": "1.0.0",
-  "description": "Scrapes articles from NY times, saves articles for later with the ability to attach notes to articles",
-  "main": "server.js",
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/PaulLNH/NewsScraper.git"
-  },
-  "author": "Paul Laird",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/PaulLNH/NewsScraper/issues"
-  },
-  "homepage": "https://github.com/PaulLNH/NewsScraper#readme",
+  "author": "",
+  "license": "ISC",
   "dependencies": {
-    "body-parser": "^1.18.3",
-    "cheerio": "^1.0.0-rc.2",
-    "express": "^4.16.3",
-    "express-handlebars": "^3.0.0",
-    "mongoose": "^5.2.3",
-    "npm": "^6.2.0",
-    "request": "^2.87.0"
+    "express": "^4.13.4",
+    "express-handlebars": "^3.0.0"
   }
 }
