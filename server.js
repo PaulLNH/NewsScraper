@@ -1,43 +1,86 @@
 // Dependencies
-var express = require("express");
-var exphbs = require("express-handlebars");
+const express = require("express");
+const exphbs = require("express-handlebars");
 
 // Create an instance of the express app.
-var app = express();
+const app = express();
 
 // Set the port of our application
 // process.env.PORT lets the port be set by Heroku
-var PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 8080;
 
 // Set Handlebars as the default templating engine.
-app.engine("handlebars", exphbs({ defaultLayout: "main" }));
-app.set("view engine", "handlebars");
+app.engine("hbs", exphbs({
+    defaultLayout: "main",
+    extname: ".hbs"
+}));
+app.set("view engine", "hbs");
 
 // Data
-var icecreams = [
-  { name: "vanilla", price: 10, awesomeness: 3 },
-  { name: "chocolate", price: 4, awesomeness: 8 },
-  { name: "banana", price: 1, awesomeness: 1 },
-  { name: "greentea", price: 5, awesomeness: 7 },
-  { name: "jawbreakers", price: 6, awesomeness: 2 },
-  { name: "vanilla", price: 10, awesomeness: 3 }
+var articles = [{
+        title: "Why your Web Development sucks",
+        author: "Clic Bate",
+        link: "https://www.linkedin.com/in/paul-laird/"
+    },
+    {
+        title: "8 things you think you understand about Web Development but you really don't",
+        author: "Clic Bate",
+        link: "https://www.linkedin.com/in/paul-laird/"
+    },
+    {
+        title: "6 incredible Web Development hacks",
+        author: "Clic Bate",
+        link: "https://www.linkedin.com/in/paul-laird/"
+    },
+    {
+        title: "6 reasons to be addicted to JavaScript",
+        author: "Clic Bate",
+        link: "https://www.linkedin.com/in/paul-laird/"
+    },
+    {
+        title: "What the government doesn't want you to know about JavaScript",
+        author: "Clic Bate",
+        link: "https://www.linkedin.com/in/paul-laird/"
+    },
+    {
+        title: "Why JavaScript is destroying America",
+        author: "Clic Bate",
+        link: "https://www.linkedin.com/in/paul-laird/"
+    },
+    {
+        title: "5 BS facts about Web Development that everyone thinks are true",
+        author: "Clic Bate",
+        link: "https://www.linkedin.com/in/paul-laird/"
+    }
 ];
 
 // Routes
-app.get("/icecreams/:name", function(req, res) {
-  for (var i = 0; i < icecreams.length; i++) {
-    if (icecreams[i].name === req.params.name) {
-      return res.render("icecream", icecreams[i]);
+
+// Returns a single item using an id
+app.get("/articles/:name", function (req, res) {
+    for (var i = 0; i < articles.length; i++) {
+        if (articles[i].name === req.params.name) {
+            return res.render("article", articles[i]);
+        }
     }
-  }
 });
 
-app.get("/icecreams", function(req, res) {
-  res.render("ics", { ics: icecreams });
+// Returns all the items - This route should also scrape prior
+app.get("/", function (req, res) {
+    res.render("index", {
+        articles: articles
+    });
+});
+
+// Returns all the items (used ased for UX so path is not empty)
+app.get("/articles", function (req, res) {
+    res.render("index", {
+        articles: articles
+    });
 });
 
 // Start our server so that it can begin listening to client requests.
-app.listen(PORT, function() {
-  // Log (server-side) when our server has started
-  console.log("Server listening on: http://localhost:" + PORT);
+app.listen(PORT, function () {
+    // Log (server-side) when our server has started
+    console.log("Server listening on: http://localhost:" + PORT);
 });
