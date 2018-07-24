@@ -1,0 +1,22 @@
+html {
+    overflow-x: hidden;
+}
+.background-image{
+    background-color: red;
+    background-image: url("../images/newspaper.jpg");
+    width: 100%;
+}
+
+.footer {
+    background: #343a40;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    color: white;
+    text-align: center;
+}
+
+a.profileLink {
+    text-decoration: none;
+}

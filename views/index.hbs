@@ -1,24 +1,30 @@
-<h1 class="text-center">New York Times Articles</h1>
-
-
-<div class="list-group">
-    {{#each articles}}
-    <a href="{{link}}" class="list-group-item list-group-item-action flex-column align-items-start {{#if @first}} active{{/if}}"
-        alt="{{title}}">
-        <div class="d-flex w-100 justify-content-between">
-            <h5 class="mb-1">{{title}}</h5>
-            <small>{{timestamp}}</small>
-        </div>
-        <p class="mb-1">{{body}}</p>
-        <small>By: {{author}}</small>
-    </a>
-    {{/each}}
+<div class="row">
+        <div class="col-12">
+            {{#if articles}}
+            {{#each articles}}
+                <div class="card w-90">
+                    <div class="card-header text-white bg-dark">
+                        <a href="{{link}}" target="_blank" class="text-white">
+                            <h2>{{title}}</h2>
+                        </a>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">
+                            {{summary}}
+                        </p>
+                        <button id="{{_id}}" class="btn btn-danger save-btn">Save Article</button>
+                        <br>
+                        <span id="saveSuccess"></span>
+                    </div>
+                </div>
+                <br>
+            {{/each}}
+            {{else}}
+                <div class="card text-white bg-warning w-90 p-1">
+                    <div class="card-body text-center">
+                        Uh oh. Looks like we don't have any new articles
+                    </div>
+                </div>
+            {{/if}}
+    </div>
 </div>
-
-
-{{!-- @index - for array indexing @key - for object indexing --}} {{!-- {{#each articles}}
-<h4>
-    <a href="{{link}}" alt="{{title}}">{{title}}</a>
-</h4>
-<p>By: {{author}}</p>
-<hr> {{/each}} --}}
