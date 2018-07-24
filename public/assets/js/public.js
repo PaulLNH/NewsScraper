@@ -5,11 +5,11 @@ $(document).ready(function () {
         const id = $(this).attr("data");
         $.ajax(`/remove/${id}`, {
             type: "PUT"
-        }).then(function(){
+        }).then(function () {
             location.reload();
         })
     });
-    
+
     // event handler for opening the note modal
     $(".note-btn").click(function (event) {
         event.preventDefault();
@@ -21,12 +21,11 @@ $(document).ready(function () {
         }).then(function (data) {
             console.log(data)
             $('.articles-available').empty();
-            if (data[0].note.length > 0){
+            if (data[0].note.length > 0) {
                 data[0].note.forEach(v => {
                     $('.articles-available').append($(`<li class='list-group-item'>${v.text}<button type='button' class='btn btn-danger btn-sm float-right btn-deletenote' data='${v._id}'>X</button></li>`));
                 })
-            }
-            else {
+            } else {
                 $('.articles-available').append($(`<li class='list-group-item'>No notes for this article yet</li>`));
             }
         })
@@ -34,16 +33,16 @@ $(document).ready(function () {
     });
 
     // $('.btn-deletenote').click(function (event) {})
-    $(document).on('click', '.btn-deletenote', function (){
-            event.preventDefault();
-            console.log($(this).attr("data"))
-            const id = $(this).attr("data");
-            console.log(id);
-            $.ajax(`/note/${id}`, {
-                type: "DELETE"
-            }).then(function () {
-                $('#note-modal').modal('toggle');
-            });
+    $(document).on('click', '.btn-deletenote', function () {
+        event.preventDefault();
+        console.log($(this).attr("data"))
+        const id = $(this).attr("data");
+        console.log(id);
+        $.ajax(`/note/${id}`, {
+            type: "DELETE"
+        }).then(function () {
+            $('#note-modal').modal('toggle');
+        });
     });
 
     $("#save-note").click(function (event) {
@@ -53,20 +52,22 @@ $(document).ready(function () {
         $('#note-input').val('');
         $.ajax(`/note/${id}`, {
             type: "POST",
-            data: { text: noteText}
+            data: {
+                text: noteText
+            }
         }).then(function (data) {
             console.log(data)
         })
         $('#note-modal').modal('toggle');
     });
 
-    $(".save-btn").click(function(event) {
+    $(".save-btn").click(function (event) {
         event.preventDefault();
         const button = $(this);
         const id = button.attr("id");
         $.ajax(`/save/${id}`, {
             type: "PUT"
-        }).then(function() {
+        }).then(function () {
             const alert = `
             <div class="alert alert-success alert-dismissible fade show" role="alert">
             This article has been saved.
@@ -75,7 +76,11 @@ $(document).ready(function () {
             </button>
             </div>`
             button.parent().append(alert);
-            }
-        );
+        });
     });
+
+    $('.navbar-nav .nav-link').click(function () {
+        $('.navbar-nav .nav-link').removeClass('active');
+        $(this).addClass('active');
+    })
 });

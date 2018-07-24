@@ -7,16 +7,59 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> {{!-- Fav icon --}}
     <link rel="shortcut icon" type="image/png" href="/assets/images/favicon.png" />
 
+    <!-- Google Fonts CDN -->
+    <link href="https://fonts.googleapis.com/css?family=Archivo+Black" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet">
+
+    <!-- Fontawesome CDN -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css" integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9"
+        crossorigin="anonymous">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
+
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B"
-        crossorigin="anonymous"> {{!-- App sepcific styling --}}
+        crossorigin="anonymous">
+
+    <!-- App sepcific styling -->
     <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
 
     <title>laird.codes - NY Times Site Scraper</title>
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+    <!-- START NAVBAR -->
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark fixed-top" id="navMain">
+        <a class="navbar-brand" href="https://www.linkedin.com/in/paul-laird/" target="blank">
+            <i class="fas fa-chess-rook fa-lg" id="navLogo"></i>&nbsp Paul Laird</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#lairdCodesNav" aria-controls="lairdCodesNav"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="lairdCodesNav">
+            <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+                <li class="nav-item" id="navHome">
+                    <a class="nav-link active" href="/">
+                        <i class="fas fa-home"></i>&nbsp Home
+                    </a>
+                </li>
+                <li class="nav-item" id="navAbout">
+                    <a class="nav-link" href="/saved">
+                        <i class="far fa-save"></i>&nbsp Saved Articles</a>
+                </li>
+                <li class="nav-item" id="navPortfolio">
+                    <a class="nav-link" href="/scrape">
+                        <i class="fas fa-search"></i>&nbsp Scrape New Articles</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!-- END NAVBAR -->
+
+    <!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="https://www.linkedin.com/in/paul-laird/" target="blank">Paul Laird</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
             aria-expanded="false" aria-label="Toggle navigation">
@@ -31,26 +74,30 @@
                 <a href="/scrape" class="btn btn-danger active" role="button" aria-pressed="true">Scrape New Articles</a>
             </div>
         </div>
-    </nav>
+    </nav> -->
+    <div id="headerSpacer"></div>
     <div class="wrapper">
-        <div class="jumbotron text-center background-image">
+        <div class="jumbotron text-center jumboHeader">
             <div class="overlay">
                 <div class="caption">
-                    <h1 class="display-1 text-white">Web Scraper</h1>
+                    <h1 class="display-1 text-white logoFont">WEB SCRAPER</h1>
                 </div>
             </div>
         </div>
         {{{ body }}}
     </div>
+    <div id="footerSpacer"></div>
 
     <footer class="container-fluid footer text-center bg-dark text-white">
         <br>
-        <p>Copyright © 2018, <a href="https://www.linkedin.com/in/paul-laird/" target="blank" class="profileLink">Paul Laird</a> all rights reserved.</p>
+        <p>Copyright © 2018,
+            <a href="https://www.linkedin.com/in/paul-laird/" target="blank" class="profileLink">Paul Laird</a> all rights reserved.</p>
     </footer>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
         crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em"

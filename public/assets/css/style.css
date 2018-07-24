@@ -1,10 +1,17 @@
 html {
     overflow-x: hidden;
 }
-.background-image{
-    background-color: red;
-    background-image: url("../images/newspaper.jpg");
-    width: 100%;
+
+#navLogo {
+    color: #328cc1;
+}
+
+.jumboHeader {
+    background: url("../images/header.jpg") no-repeat;
+    text-align: center;
+    /* background: url('hero-background-nature.jpg'); */
+    background-size: cover;
+    background-position: center;
 }
 
 .footer {
@@ -17,6 +24,29 @@ html {
     text-align: center;
 }
 
+.logoFont {
+    font-family: "Archivo Black", sans-serif;
+    color: #d9b310 !important;
+}
+
 a.profileLink {
     text-decoration: none;
+    color: #328cc1 !important;
+}
+
+a.profileLink:focus,
+a.profileLink:hover {
+    color: #d9b310 !important;
+}
+
+.navbar-dark .nav-item>.nav-link.active {
+    color: white;
+}
+
+#footerSpacer {
+    margin-top: 50px;
+}
+
+#headerSpacer {
+    margin-bottom: 55px;
 }
